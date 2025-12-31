@@ -1,0 +1,24 @@
+name: Step Types 
+on:
+ workflow_dispatch:
+jobs:
+ say-hello-inline-bash:
+  runs-on: ubuntu-24.04 
+  steps:
+   - run: echo "hello world"
+ say-hello-inline-python:
+  runs-on: ubuntu-24.04 
+  steps:
+    - run: print("hello world")
+      shell: python 
+ say-hello-inline-javascript:
+  runs-on: ubuntu-24.04 
+  steps:
+   - run: console.log("hello world")
+     shell: javascript
+ say-hello-action:
+  runs-on: ubuntu-24.04 
+  steps:
+   - uses: github-actions/Readme.md
+     with: 
+       who-to-greet: "from an action in the Github Action workplace!"
