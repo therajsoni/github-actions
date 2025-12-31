@@ -1,0 +1,30 @@
+name: workflows, Jobs and Steps 
+on: 
+ workflow_dispatch: 
+jobs:
+ job-1:
+  runs-on: ubuntu-24.04 
+  steps:
+   - run: echo "A Job Consists of"
+   - run: echo "One or more steps"
+   - run: echo "Which run sequentially"
+   - run: echo "Within the same compute environment"
+ job-2:
+  runs-on: ubuntu-24.04
+  steps:
+   - run: echo "Multiple Jobs can run in parallel"   
+ job-3:
+  runs-on: ubuntu-24.04 
+  needs:
+   - job-1 
+   - job-2
+  steps:
+   - run: echo "They can also depend on more another..."
+ job-4:
+  runs-on: ubuntu-24.04 
+  needs:
+   - job-2 
+   - job-3
+  steps:
+   - run: echo "...to form a directed acyclic graph (DAG)"
+      
